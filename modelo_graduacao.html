@@ -3,7 +3,7 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title></title>
+  <title>PDF</title>
   <style>
     @page {
       margin-top: 150px;
@@ -27,13 +27,14 @@
       left: 0px;
       bottom: -120px;
       right: 0px;
+      text-align: center;
       height: 120px;
       width: 100%;
     }
 
     .page-break {
       page-break-after: always;
-      margin-top: 160px;
+      margin-top: 80px;
     }
 
     .page-break:last-child {
@@ -42,6 +43,10 @@
 
     .content {
       margin-top: 0px;
+    }
+
+    .content p {
+      margin-bottom: 8px;
     }
   </style>
 </head>
@@ -53,10 +58,14 @@
         <td style='width:20%' style='text-align:left;'>
           <img src="https://www.fflch.usp.br/themes/contrib/fflch-theme/images/logo.png" width='100px' />
         </td>
-        <td style='width:80%' ; style='text-align:center;'>
-          <p align='center'><b>FACULDADE DE FILOSOFIA, LETRAS E CIÊNCIAS HUMANAS</b>
-            <br>Universidade de São Paulo<br>
+        <td style="width:80%; text-align:center; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif;">
+          <p align='left'>FACULDADE DE FILOSOFIA,
+            <br> LETRAS E CIÊNCIAS HUMANAS
+            <br> UNIVERSIDADE DE SÃO PAULO
           </p>
+        </td>
+        <td style='width:20%' style='text-align:right;'>
+          <img src="https://www.fflch.usp.br/themes/contrib/fflch-theme/images/usp.png" width='100px' />
         </td>
       </tr>
     </table>
@@ -65,12 +74,31 @@
 
   <footer id="footer">
     <hr>
-    // RODAPÉ
+    <p style="width:80%; text-align:center; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif;">SERVIÇO DE GRADUAÇÃO</p>
+    <p style="width:80%; text-align:center; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 10px;">
+      Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+    </p>
   </footer>
 
   <div class="content" style="margin-bottom: 52px; margin-right: 15px; overflow-wrap: break-word">
     <main>
-      // CONTEÚDO
+      <p><b>Nome:</b> {{ data.nome_aluno }}</p>
+      <p><b>E-mail:</b> {{ data.e_mail }} / <b>Telefone:</b> {{ data.celular }}</p>
+      <p><b>Nº USP:</b> {{ data.numero_usp }} / <b>Curso:</b> {{ data.curso }}</p>
+      <p><b>Nome da Disciplina:</b> {{ data.nome_disciplina }}</p>
+      <p><b>Nome do Docente:</b> {{ data.nome_docente }}</p>
+      <p><b>Finalidade do Afastamento:</b> </p>
+      <p>{{ data.finalidade_do_afastamento }}</p>
+      <p>Data: {{ created|date('d/m/y')}}</p>
+
+      <h5>PARECER DO DOCENTE</h5>
+      <p>[ ] Estabeleço a realização de exercícios domiciliares, conforme entendido com o interessado.</p>
+      <p>[ ] Estabeleço atividades de recuperação do aprendizado da disciplina no período de </p>
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
+      <p>[ ] Não há condições de recuperar as atividades perdidas pelas seguintes razões: </p>
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
     </main>
   </div>
 
