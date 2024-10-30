@@ -86,7 +86,30 @@
 
   <div class="content" style="margin-bottom: 20px; margin-right: 15px; overflow-wrap: break-word">
     <main>
-      <p>CONTEÚDO</p>
+      <p><b>Nome:</b> {{ data.nome_aluno }}</p>
+      <p><b>E-mail:</b> {{ data.e_mail }} <span style="float: right;"><b>Telefone:</b> {{ data.celular }}</span></p>
+      <p><b>Nº USP:</b> {{ data.numero_usp }} <span style="float: right;"> <b>Curso:</b> {{ data.curso }}</span></p>
+      <p><b>Nome da Disciplina:</b> {{ data.nome_disciplina }}</p>
+      <p><b>Nome do Docente:</b> {{ data.nome_docente }}</p>
+      <p><b>Finalidade do Afastamento:</b> </p>
+      <p>{{ data.finalidade_do_afastamento }}</p>
+      <p>Data: {{ created|date('d/m/y')}}<span style="float: right;">Assinatura: ____________________________</span></p>
+
+      <h5>PARECER DO DOCENTE</h5>
+      <p>[ ] Estabeleço a realização de exercícios domiciliares, conforme entendido com o interessado.</p>
+      <p>[ ] Estabeleço atividades de recuperação do aprendizado da disciplina no período de </p>
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
+      <p>[ ] Não há condições de recuperar as atividades perdidas pelas seguintes razões: </p>
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
+      <hr style="border: 1px solid #000000; margin: 20px 0;">
+
+      <p>São Paulo, ___/___/___<span style="float: right;">Assinatura: ____________________________</span></p>
+
+      <table style="margin: auto; margin-top: 12px; border: 1px solid black; font-size: 12px;">
+        <tr><td style="border-bottom: 0.5px solid black;">Protocolo de Recebimento</td></tr>
+        <tr><td>N.º </td></tr>
+      </table>
     </main>
   </div>
 
