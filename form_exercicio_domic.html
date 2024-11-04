@@ -4,35 +4,35 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>PDF</title>
+
   <style>
     @page {
-        margin-top: 140px;
-        margin-bottom: 100px;
-        margin-left: 50px;
-        margin-right: 50px;
+      margin: 140px 50px 100px;
     }
 
     header {
       position: fixed;
-      left: 0px;
+      left: 0;
       top: -120px;
-      right: 0px;
+      right: 0;
       height: 120px;
       text-align: center;
       width: 100%;
-      margin-top: 0px;
-      margin-bottom: 10px;
+    }
+
+    main {
+      font-family: Verdana, sans-serif;
+      line-height: 1.5;
+      font-size: 16px;
     }
 
     footer {
-      margin: 0;
-      padding: 0;
       position: fixed;
-      left: 0px;
-      right: 0px;
-      bottom: -120px;
-      height: 120px;
-      width: 100%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 20px;
+      padding: 10px 0;
     }
 
     .page-break {
@@ -45,12 +45,16 @@
     }
 
     .content {
-      margin-top: 0px;
+      margin-right: 15px; 
+      overflow-wrap: break-word
     }
 
-    .content p {
-      margin-bottom: 4px;
-      font-size: 12px;
+    #informacoesAluno {
+      line-height: 1.5;
+      width: 100%;
+      border-collapse: collapse;
+      margin: auto;
+      padding: 4px 4px;
     }
   </style>
 </head>
@@ -59,59 +63,65 @@
   <header>
     <table style='width:100%;'>
       <tr>
-        <td style='width:20%' style='text-align:left;'>
-          <img src="https://www.fflch.usp.br/themes/contrib/fflch-theme/images/logo.png" width='100px' />
-        </td>
+        <td style='width:20%; text-align:left;'><img src="" width='100px' /></td>
         <td style="width:80%; text-align:center; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif;">
-          <p style="text-align: left;">FACULDADE DE FILOSOFIA,
+          <p style="text-align: left;">
+            FACULDADE DE FILOSOFIA,
             <br> LETRAS E CIÊNCIAS HUMANAS
             <br> UNIVERSIDADE DE SÃO PAULO
           </p>
         </td>
-        <td style='width:20%' style='text-align:right;'>
-          <img src="https://www.fflch.usp.br/themes/contrib/fflch-theme/images/usp.png" width='100px' />
-        </td>
+        <td style='width:20%; text-align:right;'><img src="" width='100px' /></td>
       </tr>
     </table>
     <hr>
   </header>
 
-  <footer>
-    <hr>
-    <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
-    <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 10px;">
-      Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
-    </p>
-  </footer>
+  <main>
+    <div class="content">
+      <table id="informacoesAluno">
+        <tr><td colspan="2"><b>Nome:</b> {{ data.nome_aluno }}</td></tr>
+        <tr><td colspan="2"><b>E-mail:</b> {{ data.e_mail }} <span style="float: right;"><b>Telefone:</b> {{ data.celular }}</span></td></tr>
+        <tr><td colspan="2"><b>Nº USP:</b> {{ data.numero_usp }} <span style="float: right;"><b>Curso:</b> {{ data.curso }}</span></td></tr>
+        <tr><td colspan="2"><b>Nome da Disciplina:</b> {{ data.nome_disciplina }} <span style="float: right;"><b>Nome do Docente:</b> {{ data.nome_docente }}</span></td></tr>
+      </table>
 
-  <div class="content" style="margin-bottom: 20px; margin-right: 15px; overflow-wrap: break-word">
-    <main>
-      <p><b>Nome:</b> {{ data.nome_aluno }}</p>
-      <p><b>E-mail:</b> {{ data.e_mail }} <span style="float: right;"><b>Telefone:</b> {{ data.celular }}</span></p>
-      <p><b>Nº USP:</b> {{ data.numero_usp }} <span style="float: right;"> <b>Curso:</b> {{ data.curso }}</span></p>
-      <p><b>Nome da Disciplina:</b> {{ data.nome_disciplina }}</p>
-      <p><b>Nome do Docente:</b> {{ data.nome_docente }}</p>
-      <p><b>Finalidade do Afastamento:</b> </p>
+      <p><b>Finalidade do Afastamento:</b></p>
       <p>{{ data.finalidade_do_afastamento }}</p>
-      <p>Data: {{ created|date('d/m/y')}}<span style="float: right;">Assinatura: ____________________________</span></p>
+      <p><b>Data: {{ created|date('d/m/y')}}</b><span style="float: right;"><b>Assinatura: ____________________________</span></b></p>
 
-      <h5>PARECER DO DOCENTE</h5>
+      <h4>PARECER DO DOCENTE</h4>
       <p>[ ] Estabeleço a realização de exercícios domiciliares, conforme entendido com o interessado.</p>
       <p>[ ] Estabeleço atividades de recuperação do aprendizado da disciplina no período de </p>
-      <hr style="border: 1px solid #000000; margin: 20px 0;">
-      <p>[ ] Não há condições de recuperar as atividades perdidas pelas seguintes razões: </p>
-      <hr style="border: 1px solid #000000; margin: 20px 0;">
-      <hr style="border: 1px solid #000000; margin: 20px 0;">
-      <hr style="border: 1px solid #000000; margin: 20px 0;">
+      <div><hr style="border: 1px solid #000000; margin: 20px 0;"></div>
+      
+      <p>[ ] Não há condições de recuperar as atividades perdidas pelas seguintes razões:</p>
+      <div><hr style="border: 1px solid #000000; margin: 20px 0;"></div>
+      <div><hr style="border: 1px solid #000000; margin: 20px 0;"></div>
+      <div><hr style="border: 1px solid #000000; margin: 20px 0;"></div>
 
-      <p>São Paulo, ___/___/___<span style="float: right;">Assinatura: ____________________________</span></p>
+      <br>
 
-      <table style="margin: auto; margin-top: 12px; border: 1px solid black; font-size: 12px;">
+      <p style="text-align: center;">
+        <b>São Paulo, ____/____/____      Assinatura: ____________________________
+      </p>
+
+      <br>
+
+      <table style="margin: auto; margin-top: 25px; border: 1px solid black; font-size: 20px;">
         <tr><td style="border-bottom: 0.5px solid black;">Protocolo de Recebimento</td></tr>
         <tr><td>N.º </td></tr>
       </table>
-    </main>
-  </div>
+    </div>
+  </main>
+
+  <footer>
+    <hr>
+    <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+    <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 12px; white-space: nowrap;">
+        Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+    </p>
+  </footer>
 
 </body>
 

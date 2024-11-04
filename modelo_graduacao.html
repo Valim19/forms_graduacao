@@ -4,92 +4,82 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title>PDF</title>
-  <style>
-    @page {
-        margin-top: 140px;
-        margin-bottom: 100px;
-        margin-left: 50px;
-        margin-right: 50px;
-    }
+    <style>
+        @page {
+            margin: 140px 50px 100px;
+        }
 
-    header {
-      position: fixed;
-      left: 0px;
-      top: -120px;
-      right: 0px;
-      height: 120px;
-      text-align: center;
-      width: 100%;
-      margin-top: 0px;
-      margin-bottom: 10px;
-    }
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            text-align: center;
+            width: 100%;
+        }
 
-    footer {
-      margin: 0;
-      padding: 0;
-      position: fixed;
-      left: 0px;
-      right: 0px;
-      bottom: -120px;
-      height: 120px;
-      width: 100%;
-    }
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.5;
+            font-size: 16px;
+        }
 
-    .page-break {
-      page-break-after: always;
-      margin-top: 40px;
-    }
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+        }
 
-    .page-break:last-child {
-      page-break-after: never;
-    }
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
 
-    .content {
-      margin-top: 0px;
-    }
+        .page-break:last-child {
+            page-break-after: never;
+        }
+    </style>
 
-    .content p {
-      margin-bottom: 4px;
-      font-size: 12px;
-    }
-  </style>
 </head>
 
 <body>
-  <header>
-    <table style='width:100%;'>
-      <tr>
-        <td style='width:20%' style='text-align:left;'>
-          <img src="https://www.fflch.usp.br/themes/contrib/fflch-theme/images/logo.png" width='100px' />
-        </td>
-        <td style="width:80%; text-align:center; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif;">
-          <p style="text-align: left;">FACULDADE DE FILOSOFIA,
-            <br> LETRAS E CIÊNCIAS HUMANAS
-            <br> UNIVERSIDADE DE SÃO PAULO
-          </p>
-        </td>
-        <td style='width:20%' style='text-align:right;'>
-          <img src="https://www.fflch.usp.br/themes/contrib/fflch-theme/images/usp.png" width='100px' />
-        </td>
-      </tr>
-    </table>
-    <hr>
-  </header>
 
-  <footer>
-    <hr>
-    <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
-    <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 10px;">
-      Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
-    </p>
-  </footer>
+    <header>
+        <table style='width:100%;'>
+            <tr>
+                <td style='width:20%; text-align:left;'>
+                    <img src="" width='100px' />
+                </td>
+                <td style="width:80%; text-align:center; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif;">
+                    <p style="text-align: left;">
+                        FACULDADE DE FILOSOFIA,
+                        <br> LETRAS E CIÊNCIAS HUMANAS
+                        <br> UNIVERSIDADE DE SÃO PAULO
+                    </p>
+                </td>
+                <td style='width:20%; text-align:right;'>
+                    <img src="" width='100px' />
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </header>
 
-  <div class="content" style="margin-bottom: 20px; margin-right: 15px; overflow-wrap: break-word">
     <main>
-      <p>CONTEÚDO</p>
+      <h4>CONTEÚDO</h4>
     </main>
-  </div>
+
+    <footer>
+        <hr>
+        <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+        <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 12px; white-space: nowrap;">
+            Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+        </p>
+    </footer>
 
 </body>
-
 </html>

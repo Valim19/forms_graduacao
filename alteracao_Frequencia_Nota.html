@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PDF</title>
+    <style>
+        @page {
+            margin: 140px 50px 100px;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        .page-break:last-child {
+            page-break-after: never;
+        }
+
+        .contentAluno p {
+            margin-right: 15px;
+            overflow-wrap: break-word;
+        }
+
+        .contentAluno table, .contentProfessor table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+
+        .contentAluno td, .contentProfessor td {
+            padding: 4px 4px;
+        }
+
+        .contentProfessor {
+            page-break-inside: avoid;
+        }
+
+        .contentProfessor table {
+            margin-top: 5px;
+            border: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <table style='width:100%;'>
+            <tr>
+                <td style='width:20%; text-align:left;'>
+                    <img src="" width='100px' />
+                </td>
+                <td style="width:80%; text-align:center; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif;">
+                    <p style="text-align: left;">
+                        FACULDADE DE FILOSOFIA,
+                        <br> LETRAS E CIÊNCIAS HUMANAS
+                        <br> UNIVERSIDADE DE SÃO PAULO
+                    </p>
+                </td>
+                <td style='width:20%; text-align:right;'>
+                    <img src="" width='100px' />
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <main>
+        <div class="contentAluno">
+            <table>
+                <tr>
+                    <td colspan="3"><b>Nome:</b> {{ data.nome_aluno }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <b>Nº USP:</b> {{ data.numero_usp }}
+                        <span style="float: right;"><b>Curso:</b> {{ data.curso }}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <b>Código da Disciplina:</b> {{ data.disciplina_codigo }}
+                        <span style="float: right;"><b>Nome da Disciplina:</b> {{ data.nome_disciplina }}</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;"><b>Turma:</b> {{ data.turma }}</td>
+                    <td style="text-align: center;"><b>Ano:</b> {{ data.ano }}</td>
+                    <td style="text-align: right;"><b>Semestre:</b> {{ data.semestre }}</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><b>Nome do Docente:</b> {{ data.nome_docente }}</td>
+                </tr>
+            </table>
+
+            <h4 style="text-align: center; margin-top: 20px;">PREENCHER APENAS OS ITENS QUE SERÃO EFETIVAMENTE ALTERADOS</h4>
+            <p style="text-align: center;"><b>A alteração é referente à:</b> {{ data.alteracao_referente_a }}</p>
+            <p style="text-align: center;">
+                <b>Frequência informada: </b> {{ data.frequencia_informada }}% 
+                <b>Nota informada: </b>{{ data.nota_informada  }}
+            </p>
+            <p style="text-align: center;">
+                <b>Frequência pretendida: </b> {{ data.frequencia_pretendida }}% 
+                <b>Nota pretendida: </b>{{ data.nota_pretendida  }}
+            </p>
+            <p>
+                <b>Data:</b> {{ created|date('d/m/y')}}<span style="float: right;">
+                <b>Assinatura aluno:</b> ____________________________</span>
+            </p>
+
+            <p><b>Motivo da alteração:</b></p>
+            <p>{{ data.motivo_alteracao }}</p>
+
+        </div>
+
+        <div class="contentProfessor">
+            <table style="margin: auto; margin-top: 10px; border: 1px solid black;">
+                <tr><td style="text-align: center;"><h4>PARA USO DO DOCENTE</h4></td></tr>
+                <tr><td style="text-align: center;"><b>Frequência correta: ______% Nota correta: ____,____ (___________________)</b></td></tr>
+                <tr><td style="text-align: center;">(  ) Reclamação fundada, alterar conforme informado  (  ) Reclamação infundada, não alterar</td></tr>
+                <tr><td style="text-align: center;"><br><b>Nome do docente: _____________________________________________________________</b></td></tr>
+                <tr><td><br><hr style="border: 1px solid #000000; margin: 15px 0;"></td></tr>
+                <tr><td><hr style="border: 1px solid #000000; margin: 15px 0;"></td></tr>
+                <tr><td><hr style="border: 1px solid #000000; margin: 15px 0;"><br></td></tr>
+                <br>
+                <tr><td style="text-align: center;"><b>Assinatura: ______________________________________</b></td></tr>
+            </table>
+
+            <br>
+            <h4>Seção de Alunos - Processado em:</h4>
+        </div>
+    </main>
+
+    <footer>
+        <hr>
+        <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+        <p style="width:80%; color:#273e74; font-family: 'Arial Narrow', Arial, sans-serif; font-size: 12px; white-space: nowrap;">
+            Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+        </p>
+    </footer>
+
+</body>
+</html>
