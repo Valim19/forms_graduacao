@@ -42,6 +42,24 @@
         .page-break:last-child {
             page-break-after: never;
         }
+
+        .outer-box {
+          border: 1px solid black;
+          padding: 10px;
+          width: 100%;
+          position: relative;
+          font-size: 14px;
+        }
+
+        .inner-box {
+          border: 1px solid black;
+          padding: 10px;
+          width: 100px;
+          position: absolute;
+          right: 20px;
+          top: 50px;
+          text-align: center;
+        }
     </style>
 
 </head>
@@ -70,7 +88,40 @@
     </header>
 
     <main>
-      <h4>CONTEÚDO</h4>
+      <h4>À Comissão de Graduação da Faculdade de Filosofia, Letras e Ciências Humanas da Universidade de São Paulo</h4>
+
+      <p>
+        Eu, {{ data.nome_aluno }}, Nº USP {{ data.numero_usp }}, tendo concluído o Curso de: {{ data.curso }}, e-mail para contato: {{ data.e_mail }}.
+      </p>
+
+      <div style="border: 2px solid green; border-radius: 14px; padding: 14px; text-align: center;">
+        <p>{{ data.selecione }} no ano de {{ data.ano }}, solicita a colação de grau sem solenidade.</p>
+        <p>Para conclusão do Bacharelado, é necessária à manifestação com relação à Licenciatura </p>
+        <p>{{ data.manifestacao_relacao_licenciatura }}</p>
+      </div>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <p>São Paulo, ____ de __________________ de ______.</p>
+        <p>Assinatura: __________________________________</p>
+      </div>
+
+      <div class="outer-box">
+        <h4>Para uso do Serviço de Graduação:</h4>
+        
+        <p>Programa Encerrado em ____/____/____ por __________________________</p>
+        
+        <p>Em condições de colar grau: Bacharelado: ____ semestre de __________</p>
+        <p style="text-indent: 182px;">Licenciatura: ____ semestre de __________</p>
+        
+        <p>Dê Ciência ____/____/____</p>
+        
+        <div class="inner-box">
+            <p>COLOU GRAU EM:</p>
+            <p>____/____/____</p>
+        </div>
+      </div>
+    
+
     </main>
 
     <footer>
