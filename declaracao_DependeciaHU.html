@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PDF</title>
+    <style>
+        @page {
+            margin: 100px 50px 100px;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        .page-break:last-child {
+            page-break-after: never;
+        }
+
+        .outer-box {
+          border: 1px solid black;
+          padding: 10px;
+          width: 100%;
+          position: relative;
+          font-size: 14px;
+        }
+
+        .inner-box {
+          border: 1px solid black;
+          padding: 10px;
+          width: 100px;
+          position: absolute;
+          right: 20px;
+          top: 50px;
+          text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+    </header>
+
+    <main>
+        <h3 style="text-align: center;">DECLARAÇÃO DE DEPENDÊNCIA</h3>
+        <h4 style="text-align: center;">(para fins de utilização dos Serviços Médicos e Complementares)</h4>
+
+        <p style="text-align: justify;">
+            Eu, {{ data.nome_aluno }}, número USP {{ data.numero_usp }}, aluno de {{ data.grau_estudo }} da Unidade {{ data.unidade }}, DECLARO, para fins de assistência à saúde na Universidade de São Paulo, que {{ data.nome_dependente }}, nascido(a) em {{ data.data_nascimento|date('d/m/Y') }}, é meu dependente na seguinte categoria:
+            <br>
+        </p>
+
+        {% if data.categoria_de_dependencia == 'Cônjuge' %}
+            <p style="padding-left: 40px;">
+                ( X ) Cônjuge <br>
+                (   ) Companheiro (a) <br>
+                (   ) Filho solteiro, menor de 18 anos de idade <br>
+            </p>
+        {% elseif data.categoria_de_dependencia == 'companheiro_a' %}
+            <p style="padding-left: 40px;">
+                (   ) Cônjuge <br>
+                ( X ) Companheiro (a) <br>
+                (   ) Filho solteiro, menor de 18 anos de idade <br>
+            </p>
+        {% else %}
+            <p style="padding-left: 40px;">
+                (   ) Cônjuge <br>
+                (   ) Companheiro (a) <br>
+                ( X ) Filho solteiro, menor de 18 anos de idade <br>
+            </p>
+        {% endif %}
+        
+        <p style="text-align: justify;">Declaro ainda, que tomei conhecimento dos requisitos de enquadramento estabelecidos na Resolução nº 7043, de 17/03/15, regulamentado pela Portaria SAU nº 01, de 27/03/2015 e comprometo-me a comunicar qualquer alteração que modifique as condições de enquadramento do dependente acima.</p>
+
+        <p style="text-align: center;"> _______________________, ______ de ________________ de _______.</p>
+        <p style="text-align: center;">Assinatura do Aluno: ____________________________________</p>
+
+        <hr style="margin: 15 0">
+
+        <h4>SAU/Departamento de Assistência à Saúde</h4>
+        <p>Cadastro efetuado em: ____/____/______ <span style="margin-left: 20px;">Por: ______________________________________</span></p>
+        <p>Observações:</p>
+        <div><hr style="border: 1px solid #000000; margin: 15px 0;"></div>
+        <div><hr style="border: 1px solid #000000; margin: 15px 0;"></div>
+
+        
+
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+</html>
