@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PDF</title>
+    <style>
+        @page {
+            margin: 140px 50px 100px;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.5;
+            font-size: 16px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+        }
+
+        header p, footer p {
+            width:80%; 
+            color:#273e74; 
+            font-family: 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        .page-break:last-child {
+            page-break-after: never;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <table style='width:100%;'>
+            <tr>
+                <td style='width:20%; text-align:left;'>
+                    <img src="" width='100px' />
+                </td>
+                <td>
+                    <p style="text-align: left;">
+                        FACULDADE DE FILOSOFIA,
+                        <br> LETRAS E CIÊNCIAS HUMANAS
+                        <br> UNIVERSIDADE DE SÃO PAULO
+                    </p>
+                </td>
+                <td style='width:20%; text-align:right;'>
+                    <img src="" width='100px' />
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <main>
+        <h4>À Comissão de Graduação da Faculdade de Filosofia, Letras e Ciências Humanas da Universidade de São Paulo</h4>
+
+        <p style="text-align: justify;">
+            Eu, {{ data.nome }} aluno(a) do Curso de {{ data.curso }}, Nº USP {{ data.numero_usp }}, vem requerer utilizar o nome social nos sistemas da USP. 
+        </p>
+
+        <p><b>NOME DE REGISTRO CIVIL:</b></p>
+        <table style="width: 100%; border: 1px solid #000000;">
+            <tr>
+                <td>{{ data.nome_registro_civil	 }}</td>
+            </tr>
+        </table>          
+
+
+        <p><b>NOME SOCIAL QUE DEVE CONSTAR NO SISTEMA:</b></p>
+        <table style="width: 100%; border: 1px solid #000000;">
+            <tr>
+                <td>{{ data.nome_social	 }}</td>
+            </tr>
+        </table>    
+
+        <div style="text-align: center; margin: 15px">
+            <p>Nestes Termos</p>
+            <p>P. Deferimento</p>
+            <p>São Paulo, _____ de __________________ de 20___.</p>
+            <p>____________________________________________ <br>
+                Assinatura
+            </p>
+            <p><b>E-mail:</b> {{ data.e_mail }} <span style="padding-left: 30px;"> <b>Celular:</b> {{ data.celular }}</span></p>
+        </div>
+ 
+        <hr>
+
+        <h4>Pró-Reitoria de Graduação</h4>
+        <h4>Nome Social - Aplicação no âmbito desta Universidade para estudantes de Graduação.</h4>
+
+        <p style="text-align: justify; font-size: 14px"> 
+            Informamos que, conforme determina o Parecer elaborado por nossa Procuradoria Geral CJ.P. n° 1168/10, de 30 de abril de 2010, o Sistema Júpiter já está adequado para o cumprimento do Decreto Estadual nº 55.588/2010, quanto ao tratamento nominal de pessoas transexuais e travestis nos órgãos públicos do Estado de São Paulo, nos documentos de teor oficial (resumo escolar, histórico escolar, diploma, atestados e cartão USP) e também aos documentos internos da Graduação (lista de presença, eleição, frequência e nota). <br>
+            Assim, para que se cumpra o Decreto Estadual, e tendo em vista que o mesmo não delimita regras específicas quanto à forma que se deve grafar o nome social, a PróReitoria de Graduação adotou a forma utilizada pela Defensoria Pública de Estado de São Paulo: nome social deve preceder o civil, sem a utilização de parênteses e com a introdução das palavras "civilmente registrada(o) como". Exemplo: FULANA da Silva, civilmente registrada como FULANO da Silva.<br>
+            O Serviço de Graduação ao efetuar o cadastro terá que ativar a opção “nome social” (Decreto Estadual nº 55.588), no sistema Júpiter Web.  O nome social escolhido aparecerá automaticamente antes do nome civil e, ao nome social escolhido, será acrescido as palavras "civilmente registrado(a) como”. Esse padrão será adotado para todos que optarem para o uso do nome social, através do preenchimento do formulário no Serviço de Graduação. <br>
+            <span style="margin-left: 20px;">* BUSP: Frente: Nome social escolhido  Verso: sem informação</span> <br>
+            <span style="margin-left: 20px;">* Cartão USP: Frente: Nome social escolhido + sobrenome civil Verso: civilmente registrado como + Nome civil</span> <br>
+            <span style="margin-left: 20px;">* Histórico Escolar: Caso o Sistema Júpiter Web identifique a opção “nome social” ativada, será habilitada a pergunta “emitir com nome Social”, para escolha da forma que o nome será emitido no documento.</span> <br>
+            <span style="margin-left: 20px;">* Emissão de Diplomas: Ao solicitar o Diploma, o sistema irá checar se está ativa a opção “usar o nome social (Decreto Estadual nº 55.588)”, se estiver o Sistema Júpiter irá realizar o questionamento: “confirma a utilização do nome social no diploma”, esta ação reforçará a informação que seu diploma será emitido com o nome social.</span> <br><br>
+            
+            <b>IMPORTANTE: </b> O Serviço de Graduação deverá substituir o Formulário existente (Circ.SG/2 de 10/01/2011) pelo anexo (Circ. SG/91 DE 14/12/2016), anexo.  
+            Por fim, é importante frisar que, a Lei Estadual 10.948/01 prevê a aplicação de penalidades administrativas à prática de discriminação homofóbica. <br><br>
+            
+            <b>DOCUMENTOS NA USP: </b>Informamos que nos documentos internos (lista de presença, eleição, frequência e nota...) o nome social constará desacompanhado do nome civil. <br>
+            Já nos documentos externos (resumo escolar, histórico escolar, diploma, atestados e cartão USP) o formato será: "NOME SOCIAL civilmente registrado como NOME CIVIL". <br>
+            E-MAIL USP: Todos os casos de alteração de e-mail, deverá ser necessário e envio de uma solicitação ao e-mail atendimentosti@usp.br ou acesse o site https://atendimentoprod.sti.usp.br/ . <br>
+            Em ambos os casos, o pedido deve ser acompanhado de justificativa para a alteração. <br>
+            Lembramos por fim que, tão logo seu novo e-mail tenha sido criado, você deverá se dirigir ao Serviço de Graduação de sua Unidade e solicitar a atualização do mailing interno com seu novo endereço eletrônico, para evitar a perda de mensagens administrativas futuras. <br>
+        </p>
+
+
+
+    </main>
+
+    <footer>
+        <hr>
+        <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+        <p style="font-size: 12px; white-space: nowrap;">
+            Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+        </p>
+    </footer>
+
+</body>
+</html>
