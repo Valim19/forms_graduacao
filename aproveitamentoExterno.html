@@ -40,6 +40,23 @@
             font-family: 'Arial Narrow', Arial, sans-serif;
         }
 
+        main p {
+            padding: 10px 10px;
+        }
+
+        main table {
+            width:100%;
+            border: 1px solid black;
+            padding: 0px 10px 10px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        main td, th {
+            border: 1px solid black;
+            padding: 6px 6px;
+        }
+
         .page-break {
             page-break-after: always;
             margin-top: 40px;
@@ -76,8 +93,41 @@
     </header>
 
     <main>
-      <h4>CONTEÚDO</h4>
+        <p style="text-align: justify;">
+            Eu, {{ data.nome }} aluno(a) matriculado(a) nesta Faculdade, Nº USP {{ data.numero_usp }}, no Curso de {{ data.curso }}, venho requerer dispensa das seguintes disciplinas mencionadas abaixo, cursadas na {{ data.faculdade_externa }}. 
+        </p>
 
+        <table>
+            <thead>
+                <tr style="font-weight: bold;">
+                    <th colspan="2">Disciplinas Cursadas</th>
+                    <th colspan="1">Carga Horária</th>
+                    <th colspan="1">Créditos</th>
+                    <th colspan="1">Nota</th>
+                    <th colspan="1">Sem/Ano</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in webform_submission.data.solicita_dispensa %}
+                    <tr>
+                        <td colspan="2">{{ item.disciplinas_cursadas }}</td>
+                        <td colspan="1">{{ item.carga_horaria }}</td>
+                        <td colspan="1">{{ item.creditos }}</td>
+                        <td colspan="1">{{ item.nota }}</td>
+                        <td colspan="1">{{ item.semestre_ano }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+          
+        <p>
+            <b>Email:</b> {{ data.e_mail }} <br>
+            <b>Telefone:</b> {{ data.telefone }}
+        </p>
+
+        <p style="margin: 20px; text-align: center;">
+            São Paulo, {{ created|date('d/m/y')}}. <span style="margin-left: 20px;">Assinatura: _________________________________</span>
+        </p>
     </main>
 
     <footer>

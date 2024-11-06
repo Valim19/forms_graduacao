@@ -40,6 +40,23 @@
             font-family: 'Arial Narrow', Arial, sans-serif;
         }
 
+        main p {
+            padding: 0px 6px;
+        }
+
+        main table {
+            width:100%;
+            border: 1px solid black;
+            padding: 0px 10px 10px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        main td, th {
+            border: 1px solid black;
+            padding: 6px 6px;
+        }
+
         .page-break {
             page-break-after: always;
             margin-top: 40px;
@@ -76,8 +93,42 @@
     </header>
 
     <main>
-      <h4>CONTEÚDO</h4>
+        <div style="border: 1px solid black; margin-bottom: 30px;">
+            <p><b>Caro/a Aluno/a:</b> o requerimento somente será encaminhado com o anexo do</p>
+            <p style="text-indent: 40px;"> 1) Histórico Escolar devidamente assinado ou com código de autenticação;</p>
+        </div>
 
+        <div style="border: 1px solid black; margin: 40px 0;">
+            <p style="text-align: justify;">
+                Eu, {{ data.nome }} aluno(a) regularmente matriculado(a) nesta Faculdade, Nº USP {{ data.numero_usp }}, no Curso de {{ data.curso }}, venho requerer o aproveitamento de estudos das disciplinas abaixo mencionadas, cursadas na própria USP.
+            </p>
+
+            <p style="margin: 20px;">
+                São Paulo, {{ created|date('d/m/y')}}. <span style="float: right;">Assinatura Requerente: _________________________________</span>
+            </p>
+
+            <h4 style="text-align: center;">PROPOSTA DE APROVEITAMENTO DE ESTUDOS</h4>
+
+            <table>
+                <thead>
+                    <tr style="font-weight: bold;">
+                        <th colspan="1">Código USP</th>
+                        <th colspan="3">Nome da Disciplina</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in webform_submission.data.disciplinas_que_o_aluno_requer_o_aproveitamento %}
+                        <tr>
+                            <td colspan="1">{{ item.codigo_usp }}</td>
+                            <td colspan="3">{{ item.nome_disciplina }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <p style="font-size: 12px;"><b>Obs.:</b> Optativa livres extradepartamentais serão aproveitadas até o limite estabelecido pela Coordenação do curso.</p>
+        </div>
+          
     </main>
 
     <footer>
