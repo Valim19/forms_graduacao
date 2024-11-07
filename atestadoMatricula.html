@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PDF</title>
+    <style>
+        @page {
+            margin: 140px 50px 100px;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.7;
+            font-size: 16px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+        }
+
+        header p, footer p {
+            width:80%; 
+            color:#273e74; 
+            font-family: 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        .page-break:last-child {
+            page-break-after: never;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <table style='width:100%;'>
+            <tr>
+                <td style='width:20%; text-align:left;'>
+                    <img src="" width='100px' />
+                </td>
+                <td>
+                    <p style="text-align: left;">
+                        FACULDADE DE FILOSOFIA,
+                        <br> LETRAS E CIÊNCIAS HUMANAS
+                        <br> UNIVERSIDADE DE SÃO PAULO
+                    </p>
+                </td>
+                <td style='width:20%; text-align:right;'>
+                    <img src="" width='100px' />
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <main>
+        <table style="width: 100%">
+            <tr>
+                <td colspan="3">
+                    <b>Nome:</b> {{ data.nome_aluno }}
+                    <span style="float: right;"><b>Nº USP:</b> {{ data.numero_usp }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: left;"><b>Curso:</b> {{ data.curso }}</td>
+                <td style="text-align: center;"><b>Turno:</b> {{ data.turno }}</td>
+                <td style="text-align: right;"><b>Ano de Ingresso:</b> {{ data.ano }}</td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <b>Celular:</b> {{ data.celular }}
+                    <span style="float: right;"><b>E-mail:</b> {{ data.e_mail }}</span>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3" style="text-align: justify;"><b>INDICAR A FINALIDADE DOS DOCUMENTOS:</b> {{ data.finalidade_dos_documentos }}</td>
+            </tr>
+        </table>
+
+        <h4>TIPOS DE DOCUMENTOS</h4>
+        {% for item in data.tipos_de_documentos %}
+            {% if item == "Histórico Escolar Final" or item == "Certificado de Conclusão do Curso" or item == "1ª Via - Diploma do Bacharelado" %}
+                <li style="padding-left: 30px; margin:8px">{{ item }} - Data de Colação de Grau: ____/____/_______.</li>
+            {% else %}
+                <li style="padding-left: 30px; margin:8px">{{ item }}</li>
+            {% endif %}
+        {% endfor %}
+
+        {% if data.observacao != null %}
+            <p><b>Obs.:</b> {{ data.observacao }}</p>
+        {% endif %}
+
+        <table style="width: 100%; margin-top: 25px; font-size: 12px;">
+            <tr>
+                <td style="width: 50%; border: 1px solid black; padding: 10px; vertical-align: top;">
+                    <table style="width: 100%; text-align: center;">
+                        <tr><td style="margin-bottom: 20px;"><b>RETIRADA DE DOCUMENTOS</b> _____/_____/_______</td></tr>
+                        <tr><td>_______________________________ <br> Assinatura</td></tr>
+                    </table>
+                </td>
+                <td style="width: 50%; border: 1px; padding: 10px; vertical-align: top; ">
+                    <table style="width: 100%; text-align: center;">
+                        <tr><td>São Paulo, ____ de ______________ de _______</td></tr>
+                        <tr><td>_______________________________ <br> Assinatura</td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </main>
+
+    <footer>
+        <hr>
+        <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+        <p style="font-size: 12px; white-space: nowrap;">
+            Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+        </p>
+    </footer>
+
+</body>
+</html>
