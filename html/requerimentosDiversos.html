@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PDF</title>
+    <style>
+        @page {
+            margin: 140px 50px 100px;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.5;
+            font-size: 15px;
+            text-align: justify;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+        }
+
+        header p, footer p {
+            width:80%; 
+            color:#273e74; 
+            font-family: 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        .page-break:last-child {
+            page-break-after: never;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <table style='width:100%;'>
+            <tr>
+                <td style='width:20%; text-align:left;'>
+                    <img src="" width='100px' />
+                </td>
+                <td>
+                    <p style="text-align: left;">
+                        FACULDADE DE FILOSOFIA,
+                        <br> LETRAS E CIÊNCIAS HUMANAS
+                        <br> UNIVERSIDADE DE SÃO PAULO
+                    </p>
+                </td>
+                <td style='width:20%; text-align:right;'>
+                    <img src="" width='100px' />
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <main>
+        <p> 
+            Eu, <u>{{ data.nome_aluno }}</u>, aluno(a) do Curso de <u>{{ data.curso }}</u>, n.º USP <u>{{ data.numero_usp }}</u>, vem requerer o que segue <u>{{ data.descricao_requerimento }}</u>.
+        </p>
+
+        <p style="font-size: 13px;">
+            <b>Estou ciente de que devo tomar conhecimento por escrito do despacho final deste requerimento.
+            <br> Sendo indeferido poderei entrar com recurso no prazo de 10 (dez) dias corridos, a partir da data da ciência neste documento, desde que exista fato novo que justifique nova deliberação pela Comissão de Graduação.</b>
+        </p>
+
+        <p style="text-align: center; line-height: 2.5;">
+            Nestes Termos <br>
+            P. Deferimento <br>
+            São Paulo, _____ de ___________________ de _______. <br>
+            _______________________________________________ <br>
+            Assinatura <br>
+            <b>Telefone:</b> {{ data.telefone_fixo }} <span style="margin-left: 30px;"> <b>Celular:</b> {{ data.celular	 }}</span><br>
+            <b>E-mail Institucional:</b> {{ data.e_mail }}
+        </p>
+
+        <table style="margin: auto; border: 1px solid black; font-size: 18px;">
+            <tr><td style="border-bottom: 0.5px solid black;">Protocolo de Recebimento</td></tr>
+            <tr><td>N.º </td></tr>
+        </table>
+    </main>
+
+    <footer>
+        <hr>
+        <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+        <p style="font-size: 12px; white-space: nowrap;">
+            Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+        </p>
+    </footer>
+
+</body>
+</html>
