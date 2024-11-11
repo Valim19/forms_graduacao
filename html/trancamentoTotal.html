@@ -22,7 +22,7 @@
         main {
             font-family: Verdana, sans-serif;
             line-height: 1.5;
-            font-size: 16px;
+            font-size: 14px;
             text-align: justify;
         }
 
@@ -62,11 +62,6 @@
         .page-break:last-child {
             page-break-after: never;
         }
-
-        .divTableMain {
-            border: 1px solid black;
-            padding: 10px 8px;
-        }
     </style>
 </head>
 
@@ -95,10 +90,20 @@
 
     <main>
         <p> 
-            {{ data.nome_aluno }}, aluno(a) do Curso de {{ data.curso }}, n.º USP {{ data.numero_usp }}, vem solicitar o TRANCAMENTO PARCIAL da(s) seguinte(s) disciplina(s), de acordo com a orientação da Comissão de Graduação, referente ao <u>{{ created|date('m') <= 6 ? '1º' : '2º' }} semestre de {{ created|date('Y') }}</u>.
+            <u>{{ data.nome_aluno }}</u>, aluno(a) do Curso de <u>{{ data.curso }}</u>, n.º USP <u>{{ data.numero_usp }}</u>, turno {{ data.turno }}, vem solicitar o vem solicitar o TRANCAMENTO TOTAL de sua matrícula a partir do <u>{{ data.trancamento_total_referente }} de {{ data.ano_de_trancamento }}</u>, de acordo com a Resolução CoG 4.811, de 26.12.2000. Indicar e comprovar a natureza do impedimento: <u>{{ data.motivo_trancamento }}</u>.
         </p>
 
-        <p style="font-size: 13px;">Entende-se por trancamento parcial de matrícula a interrupção das atividades escolares em uma ou mais disciplinas. A solicitação de trancamento parcial de disciplinas no 2º semestre de 2024 será aceita até o dia 16 de setembro de 2024. As solicitações de trancamento de matrícula em disciplinas, serão aceitas, desde que restem no mínimo de 12 (doze) créditos-aula em matrículas no semestre. Os alunos que necessitam trancar todas as disciplinas devem solicitar o trancamento total.</p>
+        <p style="font-size: 12px; color:#273e74;">
+            Entende-se por trancamento total de matrícula a interrupção das atividades escolares em todas as disciplinas em que o aluno estiver matriculado. <br>
+            Mediante requerimento indicado, o aluno poderá solicitar o trancamento total de matrícula em qualquer época do ano. Se a solicitação for feita durante o transcurso do período letivo, o trancamento total não poderá ser autorizado se o aluno não estiver regularmente matriculado ou se já se encontrar reprovado por faltas em disciplinas cuja soma de créditos ultrapasse 25% do total de créditos de sua matrícula no correspondente período letivo. <br>
+            A soma total dos períodos de trancamento de matrícula não poderá ultrapassar a três anos, nas seguintes condições: <br>
+            <span style="margin-left: 30px;">a) até dois anos, sem necessidade de justificativa;</span><br>
+            <span style="margin-left: 30px;">b) após o período mencionado na alínea anterior, até mais um ano, quando a solicitação for devidamente justificada e comprovada, a critério da Comissão de Graduação.</span><br>
+            Não ultrapassado este prazo, o aluno terá o direito de retornar em sua própria vaga, devendo submeter-se às adaptações curriculares julgadas necessárias pela CG.<br>
+            Não é permitido o trancamento total de matrícula ao aluno que não tenha obtido pelo menos 24 créditos em seu currículo, ressalvados os casos excepcionais, que serão julgados pela CG.<br>
+            O Trancamento Total de Matrícula concedido ao aluno que estiver matriculado em disciplinas pedagógicas da Faculdade de Educação, relacionadas ao curso de sua Unidade de origem, gerará efeitos sobre a matrícula de ambas as unidades, observando-se as demais normas supracitadas.<br>
+            O período em que o aluno estiver legalmente afastado, em virtude de trancamento total de matrícula, não será computado nos cálculos relativos ao cancelamento de matrícula.
+        </p>
 
         <p style="text-align: center;">
             Nestes Termos <br>
@@ -114,8 +119,8 @@
 
         <table>
             <tr style="font-size: 13px; text-align: left;">
-                <td>Recebido por:</td>
-                <td>Processado por:</td>
+                <td><b>1º Trancamento Total:</b> [ ] Sim [ ] Não <b><span style="margin-left: 120px;">OU</span></b></td>
+                <td><b>[ ] Prorrogação</b></td>
             </tr>
         </table>
     </main>
