@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PDF</title>
+    <style>
+        @page {
+            margin: 140px 50px 100px;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            text-align: center;
+            width: 100%;
+        }
+
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        main table {
+            width:100%;
+            border: 1px solid black;
+            padding: 0px 10px 10px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        main td, th {
+            border: 1px solid black;
+            padding: 6px 6px;
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+        }
+
+        header p, footer p {
+            width:80%; 
+            color:#273e74; 
+            font-family: 'Arial Narrow', Arial, sans-serif;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        .page-break:last-child {
+            page-break-after: never;
+        }
+
+        .divTableMain {
+            border: 1px solid black;
+            padding: 10px 8px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <table style='width:100%;'>
+            <tr>
+                <td style='width:20%; text-align:left;'>
+                    <img src="" width='100px' />
+                </td>
+                <td>
+                    <p style="text-align: left;">
+                        FACULDADE DE FILOSOFIA,
+                        <br> LETRAS E CIÊNCIAS HUMANAS
+                        <br> UNIVERSIDADE DE SÃO PAULO
+                    </p>
+                </td>
+                <td style='width:20%; text-align:right;'>
+                    <img src="" width='100px' />
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <main>
+        <p> 
+            {{ data.nome_aluno }}, aluno(a) do Curso de {{ data.curso }}, n.º USP {{ data.numero_usp }}, vem solicitar o TRANCAMENTO PARCIAL da(s) seguinte(s) disciplina(s), de acordo com a orientação da Comissão de Graduação, referente ao <u>{{ created|date('m') <= 6 ? '1º' : '2º' }} semestre de {{ created|date('Y') }}</u>.
+        </p>
+
+        <p style="font-size: 13px;">Entende-se por trancamento parcial de matrícula a interrupção das atividades escolares em uma ou mais disciplinas. A solicitação de trancamento parcial de disciplinas no 2º semestre de 2024 será aceita até o dia 16 de setembro de 2024. As solicitações de trancamento de matrícula em disciplinas, serão aceitas, desde que restem no mínimo de 12 (doze) créditos-aula em matrículas no semestre. Os alunos que necessitam trancar todas as disciplinas devem solicitar o trancamento total.</p>
+
+        <p style="text-align: center;">
+            Nestes Termos <br>
+            P. Deferimento <br>
+            São Paulo, _____ de ___________________ de _______.<br>
+        </p>
+
+        <p style="text-align: center; padding-bottom: 20px;">
+            _______________________________________________ <br>
+            Assinatura <br>
+            <b>E-mail Institucional:</b> {{ data.e_mail }}
+        </p>
+
+        <table>
+            <tr style="font-size: 13px; text-align: left;">
+                <td>Recebido por:</td>
+                <td>Processado por:</td>
+            </tr>
+        </table>
+    </main>
+
+    <footer>
+        <hr>
+        <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+        <p style="font-size: 12px; white-space: nowrap;">
+            Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+        </p>
+    </footer>
+
+</body>
+</html>
