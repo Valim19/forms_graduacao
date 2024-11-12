@@ -15,7 +15,6 @@
             top: -120px;
             right: 0;
             height: 120px;
-            text-align: center;
             width: 100%;
         }
 
@@ -32,6 +31,7 @@
             bottom: 0;
             height: 20px;
             padding: 10px 0;
+            white-space: nowrap;
         }
 
         header p, footer p {
@@ -40,42 +40,30 @@
             font-family: 'Arial Narrow', Arial, sans-serif;
         }
 
-        .page-break {
-            page-break-after: always;
-            margin-top: 40px;
-        }
-
-        .page-break:last-child {
-            page-break-after: never;
-        }
-
         .contentAluno p {
             margin-top: 20px;
             margin-right: 15px;
             overflow-wrap: break-word;
         }
 
-        .contentAluno table, .contentProfessor table {
+        .contentAluno table {
             width: 100%;
             border-collapse: collapse;
             margin: auto;
         }
 
-        .contentAluno td, .contentProfessor td {
+        .contentAluno td {
             padding: 4px 4px;
         }
 
         .contentProfessor {
-            page-break-inside: avoid;
-        }
-
-        .contentProfessor table {
-            margin: auto;
-            margin-top: 5px;
-            border: 1px solid black;
+            border: 1px solid #000000; 
+            text-align: center; 
+            line-height: 2.0;
+            padding: 4px 4px;
+            page-break-before: always;
         }
     </style>
-
 </head>
 
 <body>
@@ -145,32 +133,30 @@
             </p>
 
             <p><b>Motivo da alteração:</b></p>
-            <p>{{ data.motivo_alteracao }}</p>
-
+            <p style="text-align: justify;">{{ data.motivo_alteracao }}</p>
         </div>
 
         <div class="contentProfessor">
-            <table>
-                <tr><td style="text-align: center;"><h4>PARA USO DO DOCENTE</h4></td></tr>
-                <tr><td style="text-align: center;"><b>Frequência correta: ______% Nota correta: ____,____ (___________________)</b></td></tr>
-                <tr><td style="text-align: center;">(  ) Reclamação fundada, alterar conforme informado - (  ) Reclamação infundada, não alterar</td></tr>
-                <tr><td style="text-align: center;"><br><b>Nome do docente: _____________________________________________________________</b></td></tr>
-                <tr><td><br><hr style="border: 1px solid #000000; margin: 15px 0;"></td></tr>
-                <tr><td><hr style="border: 1px solid #000000; margin: 15px 0;"></td></tr>
-                <tr><td><hr style="border: 1px solid #000000; margin: 15px 0;"><br></td></tr>
-                <br>
-                <tr><td style="text-align: center;"><b>Assinatura: ______________________________________</b></td></tr>
-            </table>
-
-            <br>
-            <h4>Seção de Alunos - Processado em:</h4>
+            <h4>PARA USO DO DOCENTE</h4>
+            <p><b>Frequência correta: ______% Nota correta: ____,____ (___________________)</b></p>
+            <p>
+                (  ) Reclamação fundada, alterar conforme informado 
+                <span style="padding-left: 30px;">(  ) Reclamação infundada, não alterar</span>
+            </p>
+            <p><b>Nome do docente: _____________________________________________________________</b></p>
+            <hr style="border: 1px solid #000000; margin: 40px 0;">
+            <hr style="border: 1px solid #000000; margin: 40px 0;">
+            <hr style="border: 1px solid #000000; margin: 40px 0;">
+            <p><b>Assinatura: ______________________________________</b></p>
         </div>
+        
+        <h4>Seção de Alunos - Processado em:</h4>
     </main>
 
     <footer>
         <hr>
         <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
-        <p style="font-size: 12px; white-space: nowrap;">
+        <p style="font-size: 12px;">
             Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
         </p>
     </footer>

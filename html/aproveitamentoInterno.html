@@ -15,7 +15,6 @@
             top: -120px;
             right: 0;
             height: 120px;
-            text-align: center;
             width: 100%;
         }
 
@@ -23,6 +22,7 @@
             font-family: Verdana, sans-serif;
             line-height: 1.5;
             font-size: 16px;
+            text-align: justify;
         }
 
         footer {
@@ -32,6 +32,7 @@
             bottom: 0;
             height: 20px;
             padding: 10px 0;
+            white-space: nowrap;
         }
 
         header p, footer p {
@@ -56,17 +57,7 @@
             border: 1px solid black;
             padding: 6px 6px;
         }
-
-        .page-break {
-            page-break-after: always;
-            margin-top: 40px;
-        }
-
-        .page-break:last-child {
-            page-break-after: never;
-        }
     </style>
-
 </head>
 
 <body>
@@ -79,7 +70,7 @@
                 </td>
                 <td>
                     <p style="text-align: left;">
-                        FACULDADE DE FILOSOFIA,
+                             FACULDADE DE FILOSOFIA,
                         <br> LETRAS E CIÊNCIAS HUMANAS
                         <br> UNIVERSIDADE DE SÃO PAULO
                     </p>
@@ -99,7 +90,7 @@
         </div>
 
         <div style="border: 1px solid black; margin: 40px 0;">
-            <p style="text-align: justify;">
+            <p>
                 Eu, {{ data.nome }} aluno(a) regularmente matriculado(a) nesta Faculdade, Nº USP {{ data.numero_usp }}, no Curso de {{ data.curso }}, venho requerer o aproveitamento de estudos das disciplinas abaixo mencionadas, cursadas na própria USP.
             </p>
 
@@ -112,29 +103,30 @@
             <table>
                 <thead>
                     <tr style="font-weight: bold;">
-                        <th colspan="1">Código USP</th>
-                        <th colspan="3">Nome da Disciplina</th>
+                        <th>Código USP</th>
+                        <th>Nome da Disciplina</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for item in webform_submission.data.disciplinas_que_o_aluno_requer_o_aproveitamento %}
                         <tr>
-                            <td colspan="1">{{ item.codigo_usp }}</td>
-                            <td colspan="3">{{ item.nome_disciplina }}</td>
+                            <td>{{ item.codigo_usp }}</td>
+                            <td>{{ item.nome_disciplina }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
 
-            <p style="font-size: 12px;"><b>Obs.:</b> Optativa livres extradepartamentais serão aproveitadas até o limite estabelecido pela Coordenação do curso.</p>
+            <p style="font-size: 12px;">
+                <b>Obs.:</b> Optativa livres extradepartamentais serão aproveitadas até o limite estabelecido pela Coordenação do curso.
+            </p>
         </div>
-          
     </main>
 
     <footer>
         <hr>
         <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
-        <p style="font-size: 12px; white-space: nowrap;">
+        <p style="font-size: 12px;">
             Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
         </p>
     </footer>

@@ -15,7 +15,6 @@
             top: -120px;
             right: 0;
             height: 120px;
-            text-align: center;
             width: 100%;
         }
 
@@ -23,6 +22,7 @@
             font-family: Verdana, sans-serif;
             line-height: 1.5;
             font-size: 16px;
+            text-align: justify;
         }
 
         footer {
@@ -32,6 +32,7 @@
             bottom: 0;
             height: 20px;
             padding: 10px 0;
+            white-space: nowrap;
         }
 
         header p, footer p {
@@ -93,7 +94,7 @@
     </header>
 
     <main>
-        <p style="text-align: justify;">
+        <p>
             Eu, {{ data.nome }} aluno(a) matriculado(a) nesta Faculdade, Nº USP {{ data.numero_usp }}, no Curso de {{ data.curso }}, venho requerer dispensa das seguintes disciplinas mencionadas abaixo, cursadas na {{ data.faculdade_externa }}. 
         </p>
 
@@ -133,7 +134,7 @@
     <footer>
         <hr>
         <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
-        <p style="font-size: 12px; white-space: nowrap;">
+        <p style="font-size: 12px;">
             Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
         </p>
     </footer>
