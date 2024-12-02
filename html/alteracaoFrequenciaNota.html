@@ -26,11 +26,10 @@
 
         footer {
             position: fixed;
-            left: 0;
-            right: 0;
             bottom: 0;
             height: 20px;
             padding: 10px 0;
+            width: 100%;
             white-space: nowrap;
         }
 
@@ -117,23 +116,23 @@
                 </tr>
             </table>
 
-            <h4 style="text-align: center; margin-top: 20px;">PREENCHER APENAS OS ITENS QUE SERÃO EFETIVAMENTE ALTERADOS</h4>
-            <p style="text-align: center;"><b>A alteração é referente à:</b> {{ data.alteracao_referente_a }}</p>
-            <p style="text-align: center;">
-                <b>Frequência informada: </b> {{ data.frequencia_informada }}% <span style="margin-left: 40px;">
-                <b>Nota informada: </b>{{ data.nota_informada  }}</span>
-            </p>
-            <p style="text-align: center;">
-                <b>Frequência pretendida: </b> {{ data.frequencia_pretendida }}% <span style="margin-left: 40px;">
-                <b>Nota pretendida: </b>{{ data.nota_pretendida  }}</span>
-            </p>
-            <p>
-                <b>Data:</b> {{ created|date('d/m/y')}}<span style="float: right;">
-                <b>Assinatura aluno:</b> ____________________________</span>
-            </p>
+            <div style="text-align: center;">
+                <h4 style="margin-top: 20px;">PREENCHER APENAS OS ITENS QUE SERÃO EFETIVAMENTE ALTERADOS</h4>
+                <p><b>A alteração é referente à:</b> {{ data.alteracao_referente_a }}</p>
+                <p>
+                    <b>Frequência informada: </b> {{ data.frequencia_informada }}% <span style="margin-left: 40px;">
+                    <b>Nota informada: </b>{{ data.nota_informada  }}</span>
+                </p>
+                <p>
+                    <b>Frequência pretendida: </b> {{ data.frequencia_pretendida }}% <span style="margin-left: 40px;">
+                    <b>Nota pretendida: </b>{{ data.nota_pretendida  }}</span>
+                </p>
+            </div>
 
             <p><b>Motivo da alteração:</b></p>
             <p style="text-align: justify;">{{ data.motivo_alteracao }}</p>
+
+            <p style="text-align: center;"><b>Data de submissão:</b> {{ created|date('d/m/y')}}</p>
         </div>
 
         <div class="contentProfessor">
@@ -144,6 +143,7 @@
                 <span style="padding-left: 30px;">(  ) Reclamação infundada, não alterar</span>
             </p>
             <p><b>Nome do docente: _____________________________________________________________</b></p>
+            <p style="text-align: left;"><b>Justificativa para alteração:</b></p>
             <hr style="border: 1px solid #000000; margin: 40px 0;">
             <hr style="border: 1px solid #000000; margin: 40px 0;">
             <hr style="border: 1px solid #000000; margin: 40px 0;">

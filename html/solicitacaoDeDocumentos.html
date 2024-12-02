@@ -27,11 +27,11 @@
 
         footer {
             position: fixed;
-            left: 0;
-            right: 0;
             bottom: 0;
             height: 20px;
             padding: 10px 0;
+            width: 100%;
+            white-space: nowrap;
         }
 
         header p, footer p {
@@ -101,7 +101,7 @@
 
         <h4>TIPOS DE DOCUMENTOS</h4>
         {% for item in data.tipos_de_documentos %}
-            {% if item == "Histórico Escolar Final" or item == "Certificado de Conclusão do Curso" or item == "1ª Via - Diploma do Bacharelado" %}
+            {% if item == "Histórico Escolar Final" or item == "Certificado de Conclusão do Curso" %}
                 <li style="padding-left: 30px; margin:8px">{{ item }} - Data de Colação de Grau: ____/____/_______.</li>
             {% else %}
                 <li style="padding-left: 30px; margin:8px">{{ item }}</li>
@@ -112,21 +112,11 @@
             <p><b>Obs.:</b> {{ data.observacao }}</p>
         {% endif %}
 
-        <table style="width: 100%; margin-top: 25px; font-size: 12px;">
-            <tr>
-                <td style="width: 50%; border: 1px solid black; padding: 10px; vertical-align: top;">
-                    <table style="width: 100%; text-align: center;">
-                        <tr><td style="margin-bottom: 20px;"><b>RETIRADA DE DOCUMENTOS</b> _____/_____/_______</td></tr>
-                        <tr><td>_______________________________ <br> Assinatura</td></tr>
-                    </table>
-                </td>
-                <td style="width: 50%; border: 1px; padding: 10px; vertical-align: top; ">
-                    <table style="width: 100%; text-align: center;">
-                        <tr><td>São Paulo, ____ de ______________ de _______</td></tr>
-                        <tr><td>_______________________________ <br> Assinatura</td></tr>
-                    </table>
-                </td>
-            </tr>
+        <p style="text-align: center;"><b>Data de Submissão: </b>{{ created|date("d/m/Y") }}</p>
+
+        <table style="width: 50%; margin: 25px auto; font-size: 12px; border: 1px solid #000000; text-align: center;">
+            <tr><td style="margin-bottom: 20px;"><b>RETIRADA DE DOCUMENTOS</b> _____/_____/_______</td></tr>
+            <tr><td>_______________________________ <br> Assinatura</td></tr>
         </table>
     </main>
 

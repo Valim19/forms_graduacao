@@ -23,31 +23,22 @@
     main {
       font-family: Verdana, sans-serif;
       line-height: 1.5;
-      font-size: 16px;
+      font-size: 15px;
     }
 
     footer {
       position: fixed;
-      left: 0;
-      right: 0;
       bottom: 0;
       height: 20px;
       padding: 10px 0;
+      width: 100%;
+      white-space: nowrap;
     }
 
     header p, footer p {
       width:80%; 
       color:#273e74; 
       font-family: 'Arial Narrow', Arial, sans-serif;
-    }
-
-    .page-break {
-      page-break-after: always;
-      margin-top: 40px;
-    }
-
-    .page-break:last-child {
-      page-break-after: never;
     }
 
     .content {
@@ -97,8 +88,8 @@
       </table>
 
       <p><b>Finalidade do Afastamento:</b></p>
-      <p>{{ data.finalidade_do_afastamento }}</p>
-      <p><b>Data: {{ created|date('d/m/y')}}</b><span style="float: right;"><b>Assinatura: ____________________________</span></b></p>
+      <p style="text-align: justify;">{{ data.finalidade_do_afastamento }}</p>
+      <p style="text-align: center;"><b>Data de Submissão:</b> {{ created|date('d/m/y')}}</p>
 
       <h4>PARECER DO DOCENTE</h4>
       <p>[ ] Estabeleço a realização de exercícios domiciliares, conforme entendido com o interessado.</p>
@@ -110,18 +101,7 @@
       <div><hr style="border: 1px solid #000000; margin: 20px 0;"></div>
       <div><hr style="border: 1px solid #000000; margin: 20px 0;"></div>
 
-      <br>
-
-      <p style="text-align: center;">
-        <b>São Paulo, ____/____/____      Assinatura: ____________________________
-      </p>
-
-      <br>
-
-      <table style="margin: auto; margin-top: 25px; border: 1px solid black; font-size: 20px;">
-        <tr><td style="border-bottom: 0.5px solid black;">Protocolo de Recebimento</td></tr>
-        <tr><td>N.º </td></tr>
-      </table>
+      <p style="text-align: center; padding-top: 10px;"><b>São Paulo, ____/____/____</b></p>
     </div>
   </main>
 
