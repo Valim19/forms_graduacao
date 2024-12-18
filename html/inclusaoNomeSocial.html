@@ -98,9 +98,12 @@
         </table>    
 
         <div style="text-align: center; margin: 15px">
-            <p>Nestes Termos</p>
-            <p>P. Deferimento</p>
-            <p>São Paulo, {{ created|date("d/m/Y") }}</p>
+            <p>
+                Nestes Termos <br>
+                P. Deferimento <br>
+                São Paulo, {{ created|date("d/m/Y") }}<br>
+                *Documento assinado digitalmente
+            </p>
             <p><b>E-mail:</b> {{ data.e_mail }} <span style="padding-left: 30px;"> <b>Celular:</b> {{ data.celular }}</span></p>
         </div>
     </main>

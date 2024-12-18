@@ -87,9 +87,11 @@
         <tr><td colspan="2"><b>Nome da Disciplina:</b> {{ data.nome_disciplina }} <span style="float: right;"><b>Nome do Docente:</b> {{ data.nome_docente }}</span></td></tr>
       </table>
 
-      <p><b>Finalidade do Afastamento:</b></p>
-      <p style="text-align: justify;">{{ data.finalidade_do_afastamento }}</p>
-      <p style="text-align: center;"><b>Data de Submissão:</b> {{ created|date('d/m/y')}}</p>
+      <p style="text-align: justify;"><b>Finalidade do Afastamento:</b> {{ data.finalidade_do_afastamento }}</p>
+      <p style="text-align: center;">
+        <b>Data de Submissão:</b> {{ created|date('d/m/y')}}<br>
+        *Documento assinado digitalmente
+      </p>
 
       <h4>PARECER DO DOCENTE</h4>
       <p>[ ] Estabeleço a realização de exercícios domiciliares, conforme entendido com o interessado.</p>

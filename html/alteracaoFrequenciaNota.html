@@ -132,7 +132,10 @@
             <p><b>Motivo da alteração:</b></p>
             <p style="text-align: justify;">{{ data.motivo_alteracao }}</p>
 
-            <p style="text-align: center;"><b>Data de submissão:</b> {{ created|date('d/m/y')}}</p>
+            <p style="text-align: center;">
+                <b>Data de submissão:</b> {{ created|date('d/m/y')}}<br>
+                *Documento assinado digitalmente
+            </p>
         </div>
 
         <div class="contentProfessor">

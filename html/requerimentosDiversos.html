@@ -81,10 +81,11 @@
             Eu, <u>{{ data.nome_aluno }}</u>, aluno(a) do Curso de <u>{{ data.curso }}</u>, n.º USP <u>{{ data.numero_usp }}</u>, vem requerer o que segue <u>{{ data.descricao_requerimento }}</u>.
         </p>
 
-        <p style="text-align: center; line-height: 2.5;">
+        <p style="text-align: center; line-height: 2.0;">
             Nestes Termos, <br>
             P. Deferimento, <br>
-            <b>São Paulo, {{ created|date("d/m/Y") }}.</b> <br>
+            São Paulo, {{ created|date("d/m/Y") }} <br>
+            *Documento assinado digitalmente <br>
             <b>Telefone:</b> {{ data.telefone_fixo }} <span style="margin-left: 30px;"> <b>Celular:</b> {{ data.celular	 }}</span><br>
             <b>E-mail Institucional:</b> {{ data.e_mail }}
         </p>

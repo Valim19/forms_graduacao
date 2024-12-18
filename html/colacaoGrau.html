@@ -105,18 +105,20 @@
         <p>Para conclusão do Bacharelado, é necessária à manifestação com relação à Licenciatura: </p>
 
         {% if data.manifestacao_relacao_licenciatura == 'Declinar da Licenciatura de Forma Definitiva' %}
-            <p>[X] Declinar da Licenciatura de Forma Definitiva  [ ]Abrir Programa de Licenciatura [ ] Cursando </p>
+            <p>[X] Declinar da Licenciatura de Forma Definitiva  [ ]Abrir Programa de Licenciatura [ ] Cursando [ ] Finalizado</p>
         {% elseif data.manifestacao_relacao_licenciatura == 'Abrir Programa de Licenciatura' %}
-            <p>[ ] Declinar da Licenciatura de Forma Definitiva  [X] Abrir Programa de Licenciatura [ ] Cursando </p>
+            <p>[ ] Declinar da Licenciatura de Forma Definitiva  [X] Abrir Programa de Licenciatura [ ] Cursando [ ] Finalizado</p>
+        {% elseif data.manifestacao_relacao_licenciatura == 'Cursando' %}
+            <p>[ ] Declinar da Licenciatura de Forma Definitiva  [ ] Abrir Programa de Licenciatura [X] Cursando  [ ] Finalizado </p>
         {% else %}
-            <p>[ ] Declinar da Licenciatura de Forma Definitiva  [ ] Abrir Programa de Licenciatura [X] Cursando </p>
+            <p>[ ] Declinar da Licenciatura de Forma Definitiva  [ ] Abrir Programa de Licenciatura [ ] Cursando  [X] Finalizado </p>
         {% endif %}
       </div>
 
-      <div style="text-align: center; margin-top: 20px;">
-        <p>São Paulo, ____ de __________________ de ______.</p>
-        <p>Assinatura: __________________________________</p>
-      </div>
+    <p div style="text-align: center; margin-top: 20px;">
+        São Paulo, </b>{{ created|date("d/m/Y") }}<br>
+        *Documento assinado digitalmente
+    </p>
 
       <div class="outer-box">
         <h4>Para uso do Serviço de Graduação:</h4>
@@ -126,14 +128,11 @@
         <p>Em condições de colar grau: Bacharelado: ____ semestre de __________</p>
         <p style="text-indent: 182px;">Licenciatura: ____ semestre de __________</p>
         
-        <p>Dê Ciência ____/____/____</p>
-        
         <div class="inner-box">
             <p>COLOU GRAU EM:</p>
             <p>____/____/____</p>
         </div>
       </div>
-    
 
     </main>
 

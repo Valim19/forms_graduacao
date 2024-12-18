@@ -117,19 +117,16 @@
             </table>
 
             <p><b>Número de créditos remanescentes:</b> {{ data.creditos_remanescentes }}</p>
-            
-            <p style="font-size: 13px;">Entende-se por trancamento parcial de matrícula a interrupção das atividades escolares em uma ou mais disciplinas. A solicitação de trancamento parcial de disciplinas no 2º semestre de 2024 será aceita até o dia 16 de setembro de 2024. As solicitações de trancamento de matrícula em disciplinas, serão aceitas, desde que restem no mínimo de 12 (doze) créditos-aula em matrículas no semestre. Os alunos que necessitam trancar todas as disciplinas devem solicitar o trancamento total.</p>
         </div>
 
         <p style="text-align: center;">
             Nestes Termos <br>
             P. Deferimento <br>
-            São Paulo, _____ de ___________________ de _______.<br>
+            São Paulo, {{ created|date("d/m/Y") }}<br>
         </p>
 
         <p style="text-align: center; padding-bottom: 20px;">
-            _______________________________________________ <br>
-            Assinatura <br>
+            *Documento assinado digitalmente<br>
             <b>E-mail Institucional:</b> {{ data.e_mail }}
         </p>
 
