@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>PDF</title>
+    <style>
+        @page {
+            margin: 140px 50px 100px;
+        }
+
+        header {
+            position: fixed;
+            left: 0;
+            top: -120px;
+            right: 0;
+            height: 120px;
+            width: 100%;
+        }
+
+        main {
+            font-family: Verdana, sans-serif;
+            line-height: 1.5;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 0;
+            height: 20px;
+            padding: 10px 0;
+            width: 100%;
+            white-space: nowrap;
+        }
+
+        header p, footer p {
+            width:80%; 
+            color:#273e74; 
+            font-family: 'Arial Narrow', Arial, sans-serif;
+        }
+
+        main p {
+            padding: 10px 10px;
+        }
+
+        main table {
+            width:100%;
+            border: 1px solid black;
+            padding: 0px 10px 10px;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        main td, th {
+            border: 1px solid black;
+            padding: 6px 6px;
+        }
+
+        .page-break {
+            page-break-after: always;
+            margin-top: 40px;
+        }
+
+        .page-break:last-child {
+            page-break-after: never;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <table style='width:100%;'>
+            <tr>
+                <td style='width:20%; text-align:left;'>
+                    <img src="" width='100px' />
+                </td>
+                <td>
+                    <p style="text-align: left;">
+                        FACULDADE DE FILOSOFIA,
+                        <br> LETRAS E CIÊNCIAS HUMANAS
+                        <br> UNIVERSIDADE DE SÃO PAULO
+                    </p>
+                </td>
+                <td style='width:20%; text-align:right;'>
+                    <img src="" width='100px' />
+                </td>
+            </tr>
+        </table>
+        <hr>
+    </header>
+
+    <main>
+        <p>
+            Eu, {{ data.nome }} aluno(a) matriculado(a) nesta Faculdade, Nº USP {{ data.numero_usp }}, no Curso de {{ data.curso }}, venho requerer dispensa da disciplina <b>{{ data.disciplina_usp }}</b>, cursada na {{ data.faculdade_externa }}. 
+        </p>
+
+        <table>
+            <thead>
+                <tr style="font-weight: bold;">
+                    <th colspan="2">Disciplinas Cursadas</th>
+                    <th colspan="1">Carga Horária</th>
+                    <th colspan="1">Créditos</th>
+                    <th colspan="1">Nota</th>
+                    <th colspan="1">Sem/Ano</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in webform_submission.data.solicita_dispensa %}
+                    <tr>
+                        <td colspan="2">{{ item.disciplina_cursada }}</td>
+                        <td colspan="1">{{ item.carga_horaria }}</td>
+                        <td colspan="1">{{ item.creditos }}</td>
+                        <td colspan="1">{{ item.nota }}</td>
+                        <td colspan="1">{{ item.semestre_ano }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+          
+        <p>
+            <b>Email:</b> {{ data.e_mail }} <br>
+            <b>Telefone:</b> {{ data.telefone }}
+        </p>
+
+        <p style="margin: 20px; text-align: center;"> 
+            São Paulo, {{ created|date('d/m/y')}}<br>
+            *Documento assinado digitalmente
+        </p>
+    </main>
+
+    <footer>
+        <hr>
+        <p style="font-size: 14px;">SERVIÇO DE GRADUAÇÃO</p>
+        <p style="font-size: 12px;">
+            Av. Prof Lineu Prestes, 338 - Térreo | Edifício de História e Geografia | Cidade Universitária | São Paulo - SP | CEP 05508-10
+        </p>
+    </footer>
+
+</body>
+</html>
