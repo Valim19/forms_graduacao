@@ -94,23 +94,14 @@
                     <span style="float: right;"><b>E-mail:</b> {{ data.e_mail }}</span>
                 </td>
             </tr>
-            <tr>
-                <td colspan="3" style="text-align: justify; font-size: 14px;"><b>INDICAR A FINALIDADE DOS DOCUMENTOS:</b> {{ data.finalidade_dos_documentos }}</td>
-            </tr>
         </table>
+
+        <p><b>INDICAR A FINALIDADE DOS DOCUMENTOS:</b> {{ data.finalidade_dos_documentos }}</p>
 
         <h4>TIPOS DE DOCUMENTOS</h4>
         {% for item in data.tipos_de_documentos %}
-            {% if item == "Histórico Escolar Final" or item == "Certificado de Conclusão do Curso" %}
-                <li style="padding-left: 30px; margin:8px">{{ item }} - Data de Colação de Grau: ____/____/_______.</li>
-            {% else %}
-                <li style="padding-left: 30px; margin:8px">{{ item }}</li>
-            {% endif %}
+            <li style="padding-left: 30px; margin:8px">{{ item }}</li>
         {% endfor %}
-
-        {% if data.observacao != null %}
-            <p style="font-size: 14px"><b>Obs.:</b> {{ data.observacao }}</p>
-        {% endif %}
 
         <p style="text-align: center;">
             <b>Data de Submissão: </b>{{ created|date("d/m/Y") }}<br>
