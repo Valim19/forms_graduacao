@@ -44,19 +44,6 @@
             padding: 10px 10px;
         }
 
-        main table {
-            width:100%;
-            border: 1px solid black;
-            padding: 0px 10px 10px;
-            text-align: center;
-            border-collapse: collapse;
-        }
-
-        main td, th {
-            border: 1px solid black;
-            padding: 6px 6px;
-        }
-
         .page-break {
             page-break-after: always;
             margin-top: 40px;
@@ -64,6 +51,14 @@
 
         .page-break:last-child {
             page-break-after: never;
+        }
+
+        .content_aluno {
+            width:100%;
+            border-collapse: collapse;
+            text-align: justify;
+            border: none;
+            border-spacing: 0;
         }
     </style>
 
@@ -93,10 +88,29 @@
     </header>
 
     <main>
-        <p>
-            Eu, {{ data.nome }} aluno(a) matriculado(a) nesta Faculdade, Nº USP {{ data.numero_usp }}, no Curso de {{ data.curso }}, venho requerer dispensa da disciplina <b>{{ data.disciplina_usp }}</b>, cursada na {{ data.faculdade_externa }}. 
-        </p>
-
+        <table class="content_aluno">
+            <tr>
+                <td colspan="2"><b>Nome:</b> {{ data.nome }}</td>
+                <td colspan="1"><b>Nº USP:</b> {{ data.numero_usp }}</td>
+            </tr>
+            <tr>
+                <td colspan="1"><b>Celular:</b> {{ data.telefone }}</td>
+                <td colspan="1"><b>E-mail:</b> {{ data.e_mail }}</td>
+            </tr>
+            <tr>
+                <td colspan="1"><b>Curso:</b> {{ data.curso }}</td>
+                <td colspan="2">
+                    {% if data.categoria == 'bacharelado' and data.categoria == 'licenciatura' %}
+                        [X] Bacharelado [X] Licenciatura
+                    {% elseif data.categoria == 'bacharelado' %}
+                        [X] Bacharelado [&nbsp;] Licenciatura
+                    {% else %}
+                        [&nbsp;] Bacharelado [X] Licenciatura
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        <!--
         <table>
             <thead>
                 <tr style="font-weight: bold;">
@@ -119,11 +133,7 @@
                 {% endfor %}
             </tbody>
         </table>
-          
-        <p>
-            <b>Email:</b> {{ data.e_mail }} <br>
-            <b>Celular:</b> {{ data.celular }}
-        </p>
+    -->
 
         <p style="margin: 20px; text-align: center;"> 
             São Paulo, {{ created|date('d/m/y')}}<br>
